@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration</title>
+</head>
+<body>
+  <h1>Register Student</h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Enter your name" required>
+    <button type="submit">Register</button>
+  </form>
+
+  <h2>Registered Students</h2>
+  <ul>
+    {% for s in students %}
+      <li>{{ s.name }}</li>
+    {% empty %}
+      <li>No students yet.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
